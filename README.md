@@ -21,3 +21,5 @@ Choose the latest versions of any of the dependencies below:
 * [scipy](https://www.scipy.org/)
 * [sklearn](http://scikit-learn.org/stable/)
 
+## Contact me
+adnanshah9911@gmail.com
