@@ -1,11 +1,11 @@
+import pickle
+import random
 import pandas as pd
 import scipy.sparse as sparse
 import numpy as np
 from scipy.sparse.linalg import spsolve
-import random
 
 grouped_purchased = pd.read_csv('cvs_data_file/online-retail.csv', header=0)
-grouped_purchased.head()
 
 customers = list(np.sort(grouped_purchased.CustomerID.unique()))
 products = list(grouped_purchased.StockCode.unique())
@@ -22,7 +22,6 @@ purchases_sparse = sparse.csr_matrix(
 matrix_size = purchases_sparse.shape[0]*purchases_sparse.shape[1]
 num_purchases = len(purchases_sparse.nonzero()[0])
 sparsity = 100*(1 - (num_purchases/matrix_size))
-# sparsity
 
 
 def make_train(ratings, pct_test=0.2):
@@ -46,7 +45,6 @@ product_train, product_test, product_users_altered = make_train(
 
 item_lookup = pd.read_csv('cvs_data_file/item_lookup.csv', header=0)
 
-import pickle
 
 with open('saved_model', 'rb') as f:
     saved_model = pickle.load(f)
@@ -67,6 +65,3 @@ def display_recommended_items(model, data, user_ids):
     top_items = item_lookup['Description'][np.argsort(-scores)]
     df = pd.DataFrame(data=top_items[:10])
     print(df)
-
-
-# display_recommended_items(model, product_train, 1)
