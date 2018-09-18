@@ -1,4 +1,4 @@
-# User-Items Recommendation Systems
+# User-Item Implicit Recommendation Systems 
 
 This repo shows a set of Jupyter Notebooks demonstrating a online retail recommendation systems which recommend items for the [online-retail dataset](https://www.kaggle.com/jihyeseo/online-retail-data-set-from-uci-ml-repo). 
 
