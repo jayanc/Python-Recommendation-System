@@ -8,23 +8,23 @@ from rest_framework import status
 import numpy
 from django.conf import settings
 
+from .fm_predictions import display_recommended_items, product_train
 model = settings.MODEL
 
 
 class UserInfoView(APIView):
 
     def get(self, request):
-        # print("Predicting")
-
-        # res = model.predict(114, 114)
-
-        # print(res)
         userInfo = UserInfo.objects.all()
         userInfo = UserInfoSerialiser(userInfo, many=True)
         return Response(userInfo.data)
 
     def post(self, request, format=None):
         print("request.data", request.data['user_id'])
+
+        display_recommended_items(
+            model, product_train, request.data['user_id'])
+
         serializer = UserInfoSerialiser(data=request.data)
         if serializer.is_valid():
             serializer.save()

@@ -126,11 +126,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# load train model
 
 import pickle
 from lightfm import LightFM
-# from lightfm.evaluation import precision_at_k, auc_score
-
 
 with open('saved_model', 'rb') as f:
     saved_model = pickle.load(f)
