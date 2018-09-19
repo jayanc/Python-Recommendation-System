@@ -4,6 +4,7 @@ import pandas as pd
 import scipy.sparse as sparse
 import numpy as np
 from scipy.sparse.linalg import spsolve
+from sklearn.metrics.pairwise import cosine_similarity
 
 grouped_purchased = pd.read_csv('cvs_data_file/online-retail.csv', header=0)
 
@@ -65,9 +66,6 @@ def display_recommended_items(model, data, user_ids):
 
 
 # item TO item recommendation
-from sklearn.metrics.pairwise import cosine_similarity
-
-
 def display_item_to_items_recommendations(model, item_id):
 
     products_arr = np.array(products)
