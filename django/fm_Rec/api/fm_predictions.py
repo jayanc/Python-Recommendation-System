@@ -19,11 +19,6 @@ purchases_sparse = sparse.csr_matrix(
     (quantity, (rows, cols)), shape=(len(customers), len(products)))
 
 
-matrix_size = purchases_sparse.shape[0]*purchases_sparse.shape[1]
-num_purchases = len(purchases_sparse.nonzero()[0])
-sparsity = 100*(1 - (num_purchases/matrix_size))
-
-
 def make_train(ratings, pct_test=0.2):
     test_set = ratings.copy()
     test_set[test_set != 0] = 1
@@ -53,22 +48,33 @@ with open('saved_model', 'rb') as f:
 
 def display_recommended_items(model, data, user_ids):
     customers_arr = np.array(customers)
+    products_arr = np.array(products)
     print("customers_arr", customers_arr)
+    user_id = np.where(customers_arr == user_ids)[0][0]
+    print(user_ids, user_id)
 
-    user_ids = np.where(customers_arr == user_ids)[0][0]
-    print(user_ids)
     n_users, n_items = data.shape
-
-    known_positives = item_lookup['Description'][data.tocsr()[
-        user_ids].indices]
+    known_positives = item_lookup['Description'][data.tocsr()[user_id].indices]
     known_positives_df = pd.DataFrame(data=known_positives)
     print(known_positives_df, '\n', '######################################')
 
-    scores = model.predict(user_ids, np.arange(n_items))
+    scores = model.predict(user_id, np.arange(n_items))
 
     top_items = item_lookup['Description'][np.argsort(-scores)]
-    df = pd.DataFrame(data=top_items)
-    print(df)
+    print(top_items)
 
 
-# display_recommended_items(model, product_train, 18287)
+# item TO item recommendation
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+def display_item_to_items_recommendations(model, item_id):
+
+    products_arr = np.array(products)
+
+    print("products_arr", products_arr, str(item_id))
+    item_id = np.where(products_arr == str(item_id))[0][0]
+    print(item_id)
+
+    return item_lookup['Description'][cosine_similarity(
+        model.item_embeddings)[item_id].argsort()][-5:][::-1]
