@@ -13,6 +13,11 @@ This is a transnational data set which contains all the transactions occurring b
 
 https://www.kaggle.com/jihyeseo/online-retail-data-set-from-uci-ml-repo
 
+## Rest Api
+Backend for web based recommendation system which can be found in this repo Python-Recommendation-System/django/fm_Rec/:
+* [Rest Api](https://github.com/AdnanShah/Python-Recommendation-System/tree/rest_api_lightfm/django/fm_Rec): I also created a rest api for the recommender using django and django-restframework which takes user_id as input and predict items user may also like.
+
+
 ## Installing
 
 I created a virtual environment in my machine, and run the code. 
