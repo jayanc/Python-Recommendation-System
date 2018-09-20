@@ -5,7 +5,7 @@ This repo shows a set of Jupyter Notebooks demonstrating a online retail recomme
 Here are the different notebooks:
 * [Data Processing](https://github.com/AdnanShah/Python-Recommendation-System/blob/master/retail_recom_sys_data_preprocessing.ipynb): Loading and processing the data to prepare them for input into my models.
 * [Deep Learning Model](https://github.com/AdnanShah/Python-Recommendation-System/blob/master/retail_recom_sys.ipynb): Using implicit collaborative filtering which is a Deep Learning approach
-* [Making Predictions](https://github.com/AdnanShah/Python-Recommendation-System/blob/rest_api_lightfm/lightFM_retail_recom_sys%20_prediction.ipynb): Making predictions of items user may like based on user_id and items user purchased.
+* [Making Predictions](https://github.com/AdnanShah/Python-Recommendation-System/blob/rest_api_lightfm/lightFM_retail_recom_sys%20_prediction.ipynb): Making predictions of items user may like based on user_id and also item_id user purchased.
 
 ## Data Source
 
