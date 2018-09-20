@@ -1,10 +1,11 @@
-# User-Items Recommendation Systems
+# User-Item Recommendation Systems
 
 This repo shows a set of Jupyter Notebooks demonstrating a online retail recommendation systems which recommend items for the [online-retail dataset](https://www.kaggle.com/jihyeseo/online-retail-data-set-from-uci-ml-repo). 
 
 Here are the different notebooks:
 * [Data Processing](https://github.com/AdnanShah/Python-Recommendation-System/blob/master/retail_recom_sys_data_preprocessing.ipynb): Loading and processing the data to prepare them for input into my models.
 * [Deep Learning Model](https://github.com/AdnanShah/Python-Recommendation-System/blob/master/retail_recom_sys.ipynb): Using implicit collaborative filtering which is a Deep Learning approach
+* [Making Predictions](https://github.com/AdnanShah/Python-Recommendation-System/blob/rest_api_lightfm/lightFM_retail_recom_sys%20_prediction.ipynb): Making predictions of items user may like based on user_id and items user purchased.
 
 ## Data Source
 
